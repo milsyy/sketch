@@ -22,6 +22,7 @@ button {
   padding: 5px;
   font-family: "Dokdo", system-ui;
   font-size: 20px;
+  cursor: pointer;
 }
 
 footer {
@@ -31,6 +32,11 @@ footer {
   font-size: 25px;
   justify-content: center;
   align-items: end;
+}
+
+p {
+  font-family: "Dokdo", system-ui;
+  font-size: 25px;
 }
 
 #board-size {
@@ -45,6 +51,11 @@ footer {
 #github {
   margin-left: 10px;
   width: 25px;
+}
+
+.active {
+  background-color: black;
+  color: blanchedalmond;
 }
 
 .scale {
@@ -81,15 +92,16 @@ footer {
   background-color: #fff;
 }
 
-.circle {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  background-color: black;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.384);
+.color-picker {
+  height: 110px;
+  width: 110px;
+  border: none;
+  background-color: blanchedalmond;
+  cursor: pointer;
 }
 
-.buttons {
+.all-buttons,
+.top-buttons {
   display: flex;
   flex-direction: column;
   gap: 20px;

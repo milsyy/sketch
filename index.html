@@ -18,21 +18,25 @@
     <h1>ETCH-A-SKETCH</h1>
     <div class="main-container">
       <div class="container-one">
-        <div class="circle"></div>
-        <div class="buttons">
-          <button>Colour Mode</button>
-          <button>Rainbow Mode</button>
-          <button>Eraser</button>
+        <input class="color-picker" type="color" />
+        <div class="all-buttons">
+          <div class="top-buttons">
+            <button>Colour Mode</button>
+            <button>Rainbow Mode</button>
+            <button>Eraser</button>
+          </div>
           <button>Clear</button>
         </div>
         <div class="scale">
-          <p id="board-size">25</p>
+          <p id="board-size">5 x 5</p>
           <input type="range" id="slider" />
         </div>
       </div>
       <div class="container-two"></div>
     </div>
-    <footer>Copyright &copy 2024 milsyy <img id="github" src="/imgs/github.png"></img></footer>
+    <footer>
+      Copyright &copy 2024 milsyy <img id="github" src="/imgs/github.png" />
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
