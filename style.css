@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background-color: blanchedalmond;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 90px;
+  font-family: "Dokdo", system-ui;
+  padding-top: 20px;
+}
+
+button {
+  background-color: blanchedalmond;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: "Dokdo", system-ui;
+  font-size: 20px;
+}
+
+footer {
+  height: 100px;
+  display: flex;
+  font-family: "Dokdo", system-ui;
+  font-size: 25px;
+  justify-content: center;
+  align-items: end;
+}
+
+#board-size {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+#slider {
+  width: 100%;
+}
+
+#github {
+  margin-left: 10px;
+  width: 25px;
+}
+
+.scale {
+  width: 100%;
+  margin: 10px 0px;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.container-one {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 80px;
+  gap: 20px;
+  width: 200px;
+}
+
+.container-two {
+  display: flex;
+  flex-wrap: wrap;
+  width: 550px;
+  height: 550px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.384);
+}
+
+.board {
+  height: auto;
+  background-color: #fff;
+}
+
+.circle {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: black;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.384);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-top: 10px;
+}

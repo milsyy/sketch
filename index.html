@@ -4,6 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-Sketch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dokdo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <h1>ETCH-A-SKETCH</h1>
+    <div class="main-container">
+      <div class="container-one">
+        <div class="circle"></div>
+        <div class="buttons">
+          <button>Colour Mode</button>
+          <button>Rainbow Mode</button>
+          <button>Eraser</button>
+          <button>Clear</button>
+        </div>
+        <div class="scale">
+          <p id="board-size">25</p>
+          <input type="range" id="slider" />
+        </div>
+      </div>
+      <div class="container-two"></div>
+    </div>
+    <footer>Copyright &copy 2024 milsyy <img id="github" src="/imgs/github.png"></img></footer>
+    <script src="script.js"></script>
+  </body>
 </html>
