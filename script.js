@@ -4,9 +4,11 @@ const allButtons = document.querySelectorAll("button");
 const slider = document.querySelector("#slider");
 const boardSliderText = document.querySelector("#board-size");
 const colourPicker = document.querySelector(".colour-picker");
+const clear = document.querySelector("#clear");
 
 let boardSize = 256;
 let isDrawing = false;
+let dragging = false;
 
 // Setting up initial board
 
@@ -61,8 +63,10 @@ const sliderText = (e) => {
 // Mouse clicked on board
 
 const startedDraw = (e) => {
-  isDrawing = true;
-  container.addEventListener("mousemove", drawingBlack);
+  if (e.detail === 1 && !dragging) {
+    isDrawing = true;
+    container.addEventListener("mousemove", drawingBlack);
+  }
 };
 
 // Drawing
@@ -79,9 +83,34 @@ const stopDrawing = (e) => {
   isDrawing = false;
 };
 
+// Clear board
+
+const clearBoard = () => {
+  let childrenArray = Array.from(container.children);
+  childrenArray.forEach((div) => {
+    div.style.backgroundColor = "#ffffff";
+  });
+};
+
+// Stop drawing while dragging
+
+const startedDragging = (e) => {
+  dragging = true;
+};
+
+// Stop drawing when dragging is finished
+
+const stoppedDragging = (e) => {
+  dragging = false;
+  isDrawing = false;
+};
+
 window.addEventListener("load", boardOnLoad);
 slider.addEventListener("input", sliderText);
 slider.addEventListener("mouseup", sliderVal);
 topButtons.addEventListener("click", changeButtons);
 container.addEventListener("mousedown", startedDraw);
 container.addEventListener("mouseup", stopDrawing);
+clear.addEventListener("click", clearBoard);
+container.addEventListener("dragstart", startedDragging);
+container.addEventListener("dragend", stoppedDragging);
