@@ -39,6 +39,30 @@ p {
   font-size: 25px;
 }
 
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.384);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background: blanchedalmond;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: white;
+  border-radius: 25px;
+  border: 1px solid black;
+  height: 10px;
+}
+
 #board-size {
   text-align: center;
   margin-bottom: 3px;
@@ -85,6 +109,7 @@ p {
   width: 550px;
   height: 550px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.384);
+  background-color: white;
 }
 
 .board {
