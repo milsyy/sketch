@@ -3,8 +3,12 @@ const topButtons = document.querySelector(".top-buttons");
 const allButtons = document.querySelectorAll("button");
 const slider = document.querySelector("#slider");
 const boardSliderText = document.querySelector("#board-size");
+const colourPicker = document.querySelector(".colour-picker");
 
 let boardSize = 256;
+let isDrawing = false;
+
+// Setting up initial board
 
 const boardOnLoad = (e) => {
   for (let i = 0; i < boardSize; i++) {
@@ -17,16 +21,19 @@ const boardOnLoad = (e) => {
   }
 };
 
+// Button colour change on select
+
 const changeButtons = (e) => {
   if (e.target.classList.contains("top-buttons")) {
     return;
   }
-
   allButtons.forEach((button) => {
     button.classList.remove("active");
   });
   e.target.classList.add("active");
 };
+
+// Setting board size based on user input on slider
 
 const sliderVal = (e) => {
   while (container.firstChild) {
@@ -44,12 +51,37 @@ const sliderVal = (e) => {
   }
 };
 
+// Updating slider text based on user input
+
 const sliderText = (e) => {
   boardSliderText.textContent = `${e.target.value} x 
   ${e.target.value}`;
+};
+
+// Mouse clicked on board
+
+const startedDraw = (e) => {
+  isDrawing = true;
+  container.addEventListener("mousemove", drawingBlack);
+};
+
+// Drawing
+
+const drawingBlack = (e) => {
+  if (isDrawing === true) {
+    e.target.style.backgroundColor = `${colourPicker.value}`;
+  }
+};
+
+// Stop drawing
+
+const stopDrawing = (e) => {
+  isDrawing = false;
 };
 
 window.addEventListener("load", boardOnLoad);
 slider.addEventListener("input", sliderText);
 slider.addEventListener("mouseup", sliderVal);
 topButtons.addEventListener("click", changeButtons);
+container.addEventListener("mousedown", startedDraw);
+container.addEventListener("mouseup", stopDrawing);
