@@ -5,10 +5,16 @@ const slider = document.querySelector("#slider");
 const boardSliderText = document.querySelector("#board-size");
 const colourPicker = document.querySelector(".colour-picker");
 const clear = document.querySelector("#clear");
+const colourMode = document.querySelector("#colour-mode");
+const rainbowMode = document.querySelector("#rainbow-mode");
+const eraserMode = document.querySelector("#eraser-mode");
 
 let boardSize = 256;
 let isDrawing = false;
 let dragging = false;
+let colourButton = false;
+let rainbowButton = false;
+let eraserButton = false;
 
 // Setting up initial board
 
@@ -63,7 +69,7 @@ const sliderText = (e) => {
 // Mouse clicked on board
 
 const startedDraw = (e) => {
-  if (e.detail === 1 && !dragging) {
+  if (e.detail === 1 && !dragging && colourMode.classList == "active") {
     isDrawing = true;
     container.addEventListener("mousemove", drawingBlack);
   }
