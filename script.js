@@ -69,7 +69,7 @@ const sliderText = (e) => {
 // Mouse clicked on board
 
 const startedDraw = (e) => {
-  if (e.detail === 1 && !dragging && colourMode.classList == "active") {
+  if (e.detail === 1 && colourMode.classList == "active") {
     isDrawing = true;
     container.addEventListener("mousemove", drawingBlack);
   }
@@ -98,17 +98,10 @@ const clearBoard = () => {
   });
 };
 
-// Stop drawing while dragging
+// Stop dragging
 
 const startedDragging = (e) => {
-  dragging = true;
-};
-
-// Stop drawing when dragging is finished
-
-const stoppedDragging = (e) => {
-  dragging = false;
-  isDrawing = false;
+  e.preventDefault();
 };
 
 window.addEventListener("load", boardOnLoad);
@@ -119,4 +112,3 @@ container.addEventListener("mousedown", startedDraw);
 container.addEventListener("mouseup", stopDrawing);
 clear.addEventListener("click", clearBoard);
 container.addEventListener("dragstart", startedDragging);
-container.addEventListener("dragend", stoppedDragging);
