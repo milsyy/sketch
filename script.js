@@ -8,6 +8,7 @@ const clear = document.querySelector("#clear");
 const colourMode = document.querySelector("#colour-mode");
 const rainbowMode = document.querySelector("#rainbow-mode");
 const eraserMode = document.querySelector("#eraser-mode");
+const body = document.querySelector("body");
 
 let boardSize = 256;
 let isDrawing = false;
@@ -122,6 +123,10 @@ const rainbow = (e) => {
   }
 };
 
+const bodyBug = () => {
+  isDrawing = false;
+};
+
 window.addEventListener("load", boardOnLoad);
 slider.addEventListener("input", sliderText);
 slider.addEventListener("mouseup", sliderVal);
@@ -133,3 +138,4 @@ container.addEventListener("dragstart", startedDragging);
 container.addEventListener("mousemove", erase);
 container.addEventListener("mousemove", drawingBlack);
 container.addEventListener("mousemove", rainbow);
+body.addEventListener("mouseup", bodyBug);
