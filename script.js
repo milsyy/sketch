@@ -69,16 +69,15 @@ const sliderText = (e) => {
 // Mouse clicked on board
 
 const startedDraw = (e) => {
-  if (e.detail === 1 && colourMode.classList == "active") {
+  if (e.detail === 1) {
     isDrawing = true;
-    container.addEventListener("mousemove", drawingBlack);
   }
 };
 
 // Drawing
 
 const drawingBlack = (e) => {
-  if (isDrawing === true) {
+  if (isDrawing === true && colourMode.classList == "active") {
     e.target.style.backgroundColor = `${colourPicker.value}`;
   }
 };
@@ -104,6 +103,25 @@ const startedDragging = (e) => {
   e.preventDefault();
 };
 
+// Eraser
+
+const erase = (e) => {
+  if (isDrawing === true && eraserMode.classList.contains("active")) {
+    e.target.style.backgroundColor = "white";
+  }
+};
+
+const rainbow = (e) => {
+  let color = "#";
+  let letters = "0123456789ABCDEF";
+  if (isDrawing === true && rainbowMode.classList.contains("active")) {
+    for (i = 0; i < 6; i++) {
+      color = color.concat(letters[Math.floor(Math.random() * 16)]);
+    }
+    e.target.style.backgroundColor = color;
+  }
+};
+
 window.addEventListener("load", boardOnLoad);
 slider.addEventListener("input", sliderText);
 slider.addEventListener("mouseup", sliderVal);
@@ -112,3 +130,6 @@ container.addEventListener("mousedown", startedDraw);
 container.addEventListener("mouseup", stopDrawing);
 clear.addEventListener("click", clearBoard);
 container.addEventListener("dragstart", startedDragging);
+container.addEventListener("mousemove", erase);
+container.addEventListener("mousemove", drawingBlack);
+container.addEventListener("mousemove", rainbow);
